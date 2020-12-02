@@ -788,6 +788,10 @@ class BigQueryAdapter(BaseAdapter):
             labels = config.get('labels', {})
             opts['labels'] = list(labels.items())
 
+        if config.get('require_partition_filter') is not None:
+            require_partition_filter = config.get('require_partition_filter')
+            opts['require_partition_filter'] = require_partition_filter
+
         return opts
 
     @available.parse_none
